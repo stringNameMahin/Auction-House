@@ -1,8 +1,8 @@
 export default function InfoSection() {
   return (
-    <section className="py-12 md:py-24 bg-muted/50">
+    <section className="py-12 md:py-24 bg-muted/50 flex flex-col items-center justify-center">
       <div className="container px-4 md:px-6">
-        <div className="grid gap-10 md:grid-cols-3">
+        <div className="grid gap-10 md:grid-cols-3 text-center">
           <div className="space-y-4">
             <h3 className="text-xl font-bold">Discover Unique Items</h3>
             <p className="text-muted-foreground">
@@ -25,43 +25,24 @@ export default function InfoSection() {
 
         <div className="mt-16 space-y-6">
           <h2 className="text-2xl md:text-3xl font-bold text-center">How It Works</h2>
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            <div className="flex flex-col items-center text-center space-y-2">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
-                <span className="text-xl font-bold">1</span>
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 justify-center text-center">
+            {[
+              { step: "1", title: "Create an Account", desc: "Sign up and complete your profile to start bidding or selling." },
+              { step: "2", title: "Browse Auctions", desc: "Explore active auctions and find items that interest you." },
+              { step: "3", title: "Place Bids", desc: "Bid on items you want and keep track of your active bids." },
+              { step: "4", title: "Win & Receive", desc: "Pay securely and receive your items directly from the seller." }
+            ].map((item) => (
+              <div key={item.step} className="flex flex-col items-center text-center space-y-2">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <span className="text-xl font-bold">{item.step}</span>
+                </div>
+                <h3 className="text-lg font-medium">{item.title}</h3>
+                <p className="text-sm text-muted-foreground">{item.desc}</p>
               </div>
-              <h3 className="text-lg font-medium">Create an Account</h3>
-              <p className="text-sm text-muted-foreground">
-                Sign up and complete your profile to start bidding or selling.
-              </p>
-            </div>
-            <div className="flex flex-col items-center text-center space-y-2">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
-                <span className="text-xl font-bold">2</span>
-              </div>
-              <h3 className="text-lg font-medium">Browse Auctions</h3>
-              <p className="text-sm text-muted-foreground">Explore active auctions and find items that interest you.</p>
-            </div>
-            <div className="flex flex-col items-center text-center space-y-2">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
-                <span className="text-xl font-bold">3</span>
-              </div>
-              <h3 className="text-lg font-medium">Place Bids</h3>
-              <p className="text-sm text-muted-foreground">Bid on items you want and keep track of your active bids.</p>
-            </div>
-            <div className="flex flex-col items-center text-center space-y-2">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
-                <span className="text-xl font-bold">4</span>
-              </div>
-              <h3 className="text-lg font-medium">Win & Receive</h3>
-              <p className="text-sm text-muted-foreground">
-                Pay securely and receive your items directly from the seller.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
-
