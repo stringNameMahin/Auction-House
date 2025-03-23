@@ -1,36 +1,22 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Auction House
 
-## Getting Started
+Auction House is a web application built with Next.js that provides a simple and efficient platform for users to auction off their items to other users. The application enables seamless bidding, listing, and purchasing of items in a user-friendly environment.
 
-First, run the development server:
+Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+User Authentication – Secure login and registration for users.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Item Listing – Users can list items for auction with images, descriptions, and starting bids.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Bidding System – Other users can place bids on listed items until the auction ends.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Auction Timer – Auctions have a set duration after which the highest bidder wins.
 
-## Learn More
+User Dashboard – Manage listings, bids, and won items from a personalized dashboard.
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+(ps: this is my web programming lab project)
