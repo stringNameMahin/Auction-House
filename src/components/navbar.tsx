@@ -88,13 +88,13 @@ export default function Navbar() {
         {/* Profile dropdown */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="relative h-8 w-8 rounded-full hidden md:flex">
-              <div className="flex items-center">
-                <div className="h-8 w-8 rounded-full bg-muted flex items-center justify-center">
-                  <User className="h-4 w-4" />
-                </div>
-                <ChevronDown className="ml-1 h-4 w-4" />
+            <Button variant="ghost" className="relative flex items-center space-x-2 h-10 rounded-full hidden md:flex">
+              {/* Profile picture circle */}
+              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-muted">
+                <User className="h-4 w-4" />
               </div>
+              {/* Arrow icon beside it */}
+              <ChevronDown className="h-4 w-4" />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="w-56">
@@ -111,7 +111,10 @@ export default function Navbar() {
               </Link>
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={() => setTheme(theme === "dark" ? "light" : "dark")} className="cursor-pointer">
+            <DropdownMenuItem
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className="cursor-pointer"
+            >
               {theme === "dark" ? <Sun className="mr-2 h-4 w-4" /> : <Moon className="mr-2 h-4 w-4" />}
               <span>{theme === "dark" ? "Light Mode" : "Dark Mode"}</span>
             </DropdownMenuItem>
@@ -122,7 +125,6 @@ export default function Navbar() {
                 <span>Logout</span>
               </Link>
             </DropdownMenuItem>
-            <DropdownMenuSeparator />
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
