@@ -1,8 +1,7 @@
-import type { Config } from "tailwindcss";
-import animate from "tailwindcss-animate" 
+import type { Config } from "tailwindcss"
 
-const config: Config = {
-  darkMode: "class",
+const config = {
+  darkMode: ["class"],
   content: [
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
@@ -76,7 +75,8 @@ const config: Config = {
       },
     },
   },
-  plugins: [animate], // ✅ Correctly imported
-};
+  plugins: [],
+} satisfies Config
 
-export default config;
+export default config
+

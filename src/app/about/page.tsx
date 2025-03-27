@@ -1,27 +1,56 @@
-import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
-import Head from "next/head";
+import Navbar from "@/components/navbar"
+import Footer from "@/components/footer"
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col">
       <Navbar />
-      <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-6">
-        <Head>
-          <title>About - Auction House</title>
-        </Head>
-        <div className="bg-white shadow-lg rounded-lg p-8 max-w-2xl text-center">
-          <h1 className="text-3xl font-bold mb-4">Auction House</h1>
-          <p className="text-gray-700 mb-4">
-            Auction House is a web application built with Next.js that provides a simple and
-            efficient platform for users to auction off their items to other users. The
-            application enables seamless bidding, listing, and purchasing of items in a
-            user-friendly environment.
+      <main className="flex-1 container mx-auto px-4 py-12">
+        <h1 className="text-3xl font-bold mb-6">About Auction House</h1>
+        <div className="prose max-w-none">
+          <p className="mb-4">
+            Welcome to Auction House, your premier destination for online auctions. Established with a vision to create
+            a transparent, secure, and user-friendly platform for buyers and sellers alike, we have quickly grown to
+            become a trusted marketplace for unique and valuable items.
           </p>
-          <p className="text-gray-500 font-medium">Developed by <span className="font-semibold">23BCE0014</span></p>
+          <p className="mb-4">
+            Our mission is to connect passionate collectors, savvy shoppers, and sellers looking to reach a global
+            audience. Whether you're searching for rare collectibles, vintage items, or modern treasures, our platform
+            offers a diverse range of categories to explore.
+          </p>
+          <h2 className="text-2xl font-bold mt-8 mb-4">Our Values</h2>
+          <ul className="list-disc pl-6 mb-6">
+            <li className="mb-2">
+              <strong>Transparency:</strong> We believe in clear, honest communication and fair bidding processes.
+            </li>
+            <li className="mb-2">
+              <strong>Security:</strong> Your data and transactions are protected with state-of-the-art security
+              measures.
+            </li>
+            <li className="mb-2">
+              <strong>Community:</strong> We foster a community of passionate collectors and sellers who share knowledge
+              and expertise.
+            </li>
+            <li className="mb-2">
+              <strong>Innovation:</strong> We continuously improve our platform to provide the best possible user
+              experience.
+            </li>
+          </ul>
+          <h2 className="text-2xl font-bold mt-8 mb-4">How We Work</h2>
+          <p className="mb-4">
+            Our platform connects sellers with potential buyers through a secure and transparent auction process.
+            Sellers can list their items with detailed descriptions and images, set starting bids, and reach a global
+            audience. Buyers can browse categories, place bids, and track their activity all in one place.
+          </p>
+          <p className="mb-4">
+            We verify all sellers and implement secure payment processing to ensure a safe experience for everyone
+            involved. Our customer support team is available to assist with any questions or concerns throughout the
+            process.
+          </p>
         </div>
-      </div>
+      </main>
       <Footer />
-    </main>
+    </div>
   )
 }
+

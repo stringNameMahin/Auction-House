@@ -1,6 +1,6 @@
 import type React from "react"
 import "@/app/globals.css"
-import { ThemeProvider } from "next-themes"
+import { ThemeProvider } from "@/components/ui/theme-provider"
 
 export const metadata = {
   title: "Auction House",
