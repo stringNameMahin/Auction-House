@@ -1,11 +1,7 @@
 import type React from "react"
-import "@/app/globals.css"
-import { ThemeProvider } from "@/components/ui/theme-provider"
-
-export const metadata = {
-  title: "Auction House",
-  description: "Discover unique items and bid on treasures from around the world.",
-}
+import { ThemeProvider } from "@/components/theme-provider"
+import AuthProvider from "@/components/auth-provider"
+import "./globals.css"
 
 export default function RootLayout({
   children,
@@ -15,9 +11,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          {children}
-        </ThemeProvider>
+        <AuthProvider>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            {children}
+          </ThemeProvider>
+        </AuthProvider>
       </body>
     </html>
   )

@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { useState } from "react"
 import { useTheme } from "next-themes"
+import { useSession, signOut } from "next-auth/react"
 import { User, Settings, LogOut, ChevronDown, Sun, Moon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
@@ -12,11 +13,11 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { cn } from "@/lib/utils"
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const { theme, setTheme } = useTheme()
+  const { data: session } = useSession()
 
   return (
     <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -85,49 +86,59 @@ export default function Navbar() {
           </div>
         )}
 
-        {/* Profile dropdown */}
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="relative flex items-center space-x-2 h-10 rounded-full hidden md:flex">
-              {/* Profile picture circle */}
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-muted">
-                <User className="h-4 w-4" />
-              </div>
-              {/* Arrow icon beside it */}
-              <ChevronDown className="h-4 w-4" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="w-56">
-            <DropdownMenuItem asChild>
-              <Link href="/profile" className="flex items-center">
-                <User className="mr-2 h-4 w-4" />
-                <span>My Profile</span>
-              </Link>
-            </DropdownMenuItem>
-            <DropdownMenuItem asChild>
-              <Link href="/settings" className="flex items-center">
-                <Settings className="mr-2 h-4 w-4" />
-                <span>Settings</span>
-              </Link>
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="cursor-pointer"
-            >
-              {theme === "dark" ? <Sun className="mr-2 h-4 w-4" /> : <Moon className="mr-2 h-4 w-4" />}
-              <span>{theme === "dark" ? "Light Mode" : "Dark Mode"}</span>
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem asChild>
-              <Link href="/logout" className="flex items-center text-destructive">
+        {/* Profile dropdown or login button */}
+        {session ? (
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" className="relative items-center space-x-2 h-10 rounded-full hidden md:flex">
+                {/* Profile picture circle */}
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-muted">
+                  <User className="h-4 w-4" />
+                </div>
+                {/* Arrow icon beside it */}
+                <ChevronDown className="h-4 w-4" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-56">
+              <DropdownMenuItem asChild>
+                <Link href="/profile" className="flex items-center">
+                  <User className="mr-2 h-4 w-4" />
+                  <span>My Profile</span>
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link href="/settings" className="flex items-center">
+                  <Settings className="mr-2 h-4 w-4" />
+                  <span>Settings</span>
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                className="cursor-pointer"
+              >
+                {theme === "dark" ? <Sun className="mr-2 h-4 w-4" /> : <Moon className="mr-2 h-4 w-4" />}
+                <span>{theme === "dark" ? "Light Mode" : "Dark Mode"}</span>
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem onClick={() => signOut()} className="cursor-pointer text-destructive">
                 <LogOut className="mr-2 h-4 w-4" />
                 <span>Logout</span>
-              </Link>
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        ) : (
+          <div className="hidden md:block">
+            <Button variant="outline" className="mr-2" asChild>
+              <Link href="/login">Login</Link>
+            </Button>
+            <Button asChild>
+              <Link href="/register">Sign Up</Link>
+            </Button>
+          </div>
+        )}
       </div>
     </nav>
   )
 }
+
