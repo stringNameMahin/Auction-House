@@ -11,7 +11,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { useAuthRequired } from "@/hooks/use-auth-required"
-import { getAllAuctionItems, placeBid } from "@/app/actions/auction"
+import { getAllAuctionItems, placeBid } from "../actions/auction"
 import {
   Dialog,
   DialogContent,

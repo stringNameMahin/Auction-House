@@ -15,7 +15,7 @@ import { Label } from "@/components/ui/label"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card } from "@/components/ui/card"
 import { Alert, AlertDescription } from "@/components/ui/alert"
-import { createAuctionItem, getUserAuctionItems, deleteAuctionItem } from "@/app/actions/auction"
+import { createAuctionItem, getUserAuctionItems, deleteAuctionItem } from "../actions/auction"
 import ProtectedRoute from "@/components/protected-route"
 import { format } from "date-fns"
 

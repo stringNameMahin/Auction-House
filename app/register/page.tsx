@@ -13,7 +13,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Separator } from "@/components/ui/separator"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
-import { registerUser } from "@/app/actions/auth"
+import { registerUser } from "../actions/auth"
 
 export default function RegisterPage() {
   const router = useRouter()

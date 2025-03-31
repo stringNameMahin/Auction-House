@@ -12,8 +12,8 @@ export const authOptions: NextAuthOptions = {
     CredentialsProvider({
       name: "Credentials",
       credentials: {
-        email: { label: "Email", type: "email" },
-        password: { label: "Password", type: "password" },
+        email: { label: "ah.server.verify@gmail.com", type: "email" },
+        password: { label: "ihzdkfvdcesfuvqz", type: "password" },
       },
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) {
@@ -44,8 +44,8 @@ export const authOptions: NextAuthOptions = {
       },
     }),
     GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID || "",
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
+      clientId: process.env.GOOGLE_CLIENT_ID || "89863113556-cj2ja8mgf7o6db2p9gquh78e3tfa25a3.apps.googleusercontent.com",
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET || "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",
     }),
     EmailProvider({
       server: {
