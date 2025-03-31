@@ -39,7 +39,7 @@ export function ThemeProvider({
   const [theme, setTheme] = useState<Theme>(defaultTheme)
 
   useEffect(() => {
-    const root = window.document.documentElement
+    // const root = window.document.documentElement
     const savedTheme = localStorage.getItem(storageKey)
 
     if (savedTheme) {
