@@ -16,22 +16,11 @@ model User {
   image         String?
   createdAt     DateTime     @default(now())
   updatedAt     DateTime     @updatedAt
-  otp           OTP?         @relation(fields: [otpId], references: [id], onDelete: Cascade)
-  otpId         String?      @unique
   accounts      Account[]
   sessions      Session[]
   auctionItems  AuctionItem[]
   bids          Bid[]
 }
-
-model OTP {
-  id        String   @id @default(cuid())
-  code      String
-  expiresAt DateTime
-  userId    String   @unique
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-}
-
 
 model Account {
   id                String  @id @default(cuid())
@@ -57,7 +46,8 @@ model Session {
   sessionToken String   @unique
   userId       String
   expires      DateTime
-  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model VerificationToken {
@@ -85,21 +75,19 @@ model AuctionItem {
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
   
-  // Relations
-  userId       String
-  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  bidHistory   Bid[]
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  bidHistory  Bid[]
 }
 
 model Bid {
-  id           String      @id @default(cuid())
-  amount       Float
-  createdAt    DateTime    @default(now())
+  id            String      @id @default(cuid())
+  amount        Float
+  createdAt     DateTime    @default(now())
   
-  // Relations
-  userId       String
-  user         User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId        String
   auctionItemId String
+  
+  user         User        @relation(fields: [userId], references: [id], onDelete: Cascade)
   auctionItem  AuctionItem @relation(fields: [auctionItemId], references: [id], onDelete: Cascade)
 }
-
