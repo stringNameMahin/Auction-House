@@ -14,8 +14,6 @@ import { Input } from "@/components/ui/input"
 import { useAuthRequired } from "@/hooks/use-auth-required"
 import { format, formatDistanceToNow } from "date-fns"
 
-// This would normally be a server component with direct database access
-// For demo purposes, we're using client component with fetch
 export default function AuctionDetailPage() {
   const { id } = useParams()
   const { data: session } = useSession()
@@ -37,8 +35,6 @@ export default function AuctionDetailPage() {
   const fetchAuctionDetails = async () => {
     setIsLoading(true)
     try {
-      // In a real app, this would be a fetch to your API
-      // For demo purposes, we'll use mock data
       const mockAuction = {
         id: id as string,
         title: "Vintage Mechanical Watch",
@@ -95,17 +91,13 @@ export default function AuctionDetailPage() {
     setError("")
 
     try {
-      // In a real app, this would be a call to your API
-      // For demo purposes, we'll simulate a successful bid
       setTimeout(() => {
-        // Update the auction with the new bid
         setAuction({
           ...auction,
           currentBid: bidAmountNum,
           bids: auction.bids + 1,
         })
 
-        // Add the new bid to the list
         setBids([
           {
             id: Date.now().toString(),

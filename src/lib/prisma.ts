@@ -10,10 +10,10 @@ export const prisma =
 
 if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
 
-// Keep database connection alive (prevents idle disconnects)
+// to Keep database connection alive
 setInterval(async () => {
   try {
-    await prisma.$queryRaw`SELECT 1`; // Simple query to keep the connection alive
+    await prisma.$queryRaw`SELECT 1`; 
     console.log("✅ Database connection is alive");
   } catch (error) {
     console.error("❌ Database keep-alive failed:", error);
