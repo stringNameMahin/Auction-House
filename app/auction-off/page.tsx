@@ -28,7 +28,6 @@ export default function AuctionOffPage() {
   const [error, setError] = useState("")
   const [success, setSuccess] = useState("")
 
-  // Form state
   const [title, setTitle] = useState("")
   const [description, setDescription] = useState("")
   const [category, setCategory] = useState("")
@@ -65,7 +64,6 @@ export default function AuctionOffPage() {
     if (e.target.files && e.target.files.length > 0) {
       const newFiles = Array.from(e.target.files)
 
-      // Limit to 5 images total
       if (imageFiles.length + newFiles.length > 5) {
         setError("Maximum 5 images allowed")
         return
@@ -73,7 +71,6 @@ export default function AuctionOffPage() {
 
       setImageFiles((prev) => [...prev, ...newFiles])
 
-      // Create preview URLs
       const newImageUrls = newFiles.map((file) => URL.createObjectURL(file))
       setImages((prev) => [...prev, ...newImageUrls])
     }
@@ -133,7 +130,6 @@ export default function AuctionOffPage() {
         setImageFiles([])
         setTermsAccepted(false)
 
-        // Switch to my auctions tab
         setTimeout(() => {
           setActiveTab("my-auctions")
         }, 1500)
